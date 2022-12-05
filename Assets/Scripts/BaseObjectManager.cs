@@ -8,11 +8,12 @@ public class BaseObjectManager : MonoBehaviour
     private Transform Markers;
     [SerializeField]
     private bool isDrawMarker;
+    private bool markerFlag = true;
 
     private void OnDrawGizmos()
     {
         Markers = this.transform.Find("Markers");
-        if (isDrawMarker)
+        if (isDrawMarker && !markerFlag)
         {
             foreach (Transform layer in Markers.transform)
             {
@@ -21,8 +22,9 @@ public class BaseObjectManager : MonoBehaviour
                     marker.GetComponent<MeshRenderer>().enabled = true;
                 }
             }
+            markerFlag = true;
         }
-        else
+        if (!isDrawMarker && markerFlag)
         {
             foreach (Transform layer in Markers.transform)
             {
@@ -31,6 +33,7 @@ public class BaseObjectManager : MonoBehaviour
                     marker.GetComponent<MeshRenderer>().enabled = false;
                 }
             }
+            markerFlag = false;
         }
     }
 }

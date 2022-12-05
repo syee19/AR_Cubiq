@@ -15,21 +15,20 @@ public class BlockColor : MonoBehaviour
             if (this.gameObject.name.Contains(i.ToString()))
             {
                 blockIndex = i;
-                Debug.Log(blockIndex);
             }
         }
 
         color = blockIndex switch
         {
-            0 => new Color(186f, 79f, 210f, 255f),
-            1 => new Color(95f, 61f, 148f, 255f),
-            2 => new Color(64f, 108f, 209f, 255f),
-            3 => new Color(74f, 181f, 209f, 255f),
-            4 => new Color(106f, 192f, 255f, 255f),
-            5 => new Color(204f, 199f, 111f, 255f),
-            6 => new Color(200f, 151f, 113f, 255f),
-            7 => new Color(182f, 103f, 114f, 255f),
-            _ => new Color(235f, 235f, 235f, 255f),
+            0 => new Color32(186, 79, 210, 255),
+            1 => new Color32(95, 61, 148, 255),
+            2 => new Color32(64, 108, 209, 255),
+            3 => new Color32(74, 181, 209, 255),
+            4 => new Color32(106, 192, 255, 255),
+            5 => new Color32(204, 199, 111, 255),
+            6 => new Color32(200, 151, 113, 255),
+            7 => new Color32(182, 103, 114, 255),
+            _ => new Color32(235, 235, 235, 255),
         };
 
         material.SetColor("_Color", color);
