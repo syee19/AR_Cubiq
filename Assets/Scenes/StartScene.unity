@@ -719,7 +719,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463305852
 MonoBehaviour:
@@ -741,8 +741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC6D0\uD558\uB294 \uC704\uCE58\uB97C \uC870\uC900\uD558\uACE0\n\uD654\uBA74\uC744
-    \uD130\uCE58\uD558\uC138\uC694."
+  m_text: "\uC124\uBA85 \uD14D\uC2A4\uD2B8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d36547f1ac92164397d4dec382bb74e, type: 2}
   m_sharedMaterial: {fileID: 1900313799823526835, guid: 1d36547f1ac92164397d4dec382bb74e, type: 2}
@@ -777,7 +776,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -908,7 +907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameBoardArea: {fileID: 1902013166}
-  baseObject: {fileID: 1997210819561868230, guid: f1216fd76fe0e5c41a518c672bccf55b, type: 3}
+  baseObject: {fileID: 1997210819561868230, guid: 30e6602dc0aa7ef4d952ecf979372748, type: 3}
+  baseObjectMask: {fileID: 7765745132285324319, guid: 20dcdfe2746c0c04b983dd77bcc9ac75, type: 3}
   uiText: {fileID: 1463305852}
 --- !u!1 &1902013166
 GameObject:
@@ -925,7 +925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1902013167
 Transform:
   m_ObjectHideFlags: 0
