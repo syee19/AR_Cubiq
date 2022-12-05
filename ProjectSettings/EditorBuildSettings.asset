@@ -6,7 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< .merge_file_a21552
     path: Assets/Scenes/SampleScene.unity
+=======
+    path: Assets/Scenes/GrabTestScene.unity
+>>>>>>> .merge_file_a29804
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f9aa381c836199f41a5f86e78a5b4d82, type: 2}
