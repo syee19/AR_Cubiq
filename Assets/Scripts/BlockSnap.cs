@@ -7,21 +7,37 @@ public class BlockSnap : MonoBehaviour
     private GameObject Markers;
     private GameObject Planes;
     private GameObject BaseBlock;
+    private GameObject BaseObject;
     private List<Transform> MarkerTransforms;
     private List<Transform> PlaneTransforms;
 
+    
+    
+
     private void Start()
     {
-        Markers = GameObject.Find("Markers");
-        Planes = GameObject.Find("Planes");
+        BaseObject = GameObject.Find("BaseObject");
+        Planes = BaseObject.transform.GetChild(0).gameObject;
+        Markers = BaseObject.transform.GetChild(1).gameObject;
+        
         BaseBlock = this.transform.GetChild(0).gameObject;
         InitializeTransforms();
     }
 
     void Update()
     {
+        /*if (BaseObject.GetComponent<BaseObjectManager>().isInBound)
+        {
+            SnapTranslate();
+            RefreshBaseBlock();
+        }
+        else
+        {
+            //Do something
+        }*/
         SnapTranslate();
         RefreshBaseBlock();
+
     }
 
     private void SnapTranslate()

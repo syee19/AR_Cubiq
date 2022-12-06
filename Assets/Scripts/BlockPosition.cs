@@ -6,6 +6,10 @@ public class BlockPosition : MonoBehaviour
 {
     public bool[,,] blockCollision = new bool[4, 4, 4];
 
+    private int[,] firstStage = new int[3, 4];
+    private int[,] secondStage = new int[3, 4];
+    private int[,] thirdStage = new int[3, 4];
+
     private void Start()
     {
         for (int i = 0; i < 4; i++)
@@ -18,6 +22,8 @@ public class BlockPosition : MonoBehaviour
                 }
             }
         }
+
+
     }
 
     public void SetCollision(int i, int j, int k, bool value)
