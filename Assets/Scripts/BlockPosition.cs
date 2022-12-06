@@ -6,9 +6,8 @@ public class BlockPosition : MonoBehaviour
 {
     public bool[,,] blockCollision = new bool[4, 4, 4];
 
-    private int[,] firstStage = new int[3, 4];
-    private int[,] secondStage = new int[3, 4];
-    private int[,] thirdStage = new int[3, 4];
+    [SerializeField]
+    private Vector3[] initPos = new Vector3[12];
 
     private void Start()
     {
@@ -23,7 +22,10 @@ public class BlockPosition : MonoBehaviour
             }
         }
 
-
+        foreach (var pos in initPos)
+        {
+            blockCollision[(int)pos.x, (int)pos.y, (int)pos.z] = true;
+        }
     }
 
     public void SetCollision(int i, int j, int k, bool value)
