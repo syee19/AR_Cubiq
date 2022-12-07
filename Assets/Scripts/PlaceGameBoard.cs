@@ -11,6 +11,9 @@ public class PlaceGameBoard : MonoBehaviour
     [SerializeField] private GameObject baseObject;         // 생성될 gameBoard
     [SerializeField] private GameObject baseObjectMask;     // 바닥에 박혀보이도록 하는 Mask 평면들
     [SerializeField] private TextMeshProUGUI uiText;
+    [SerializeField] private GameObject[] stagePrefabs;
+
+    private Vector3[] stagePrefabPos = new[] { new Vector3(0.3f, 0.3f, 0f), new Vector3(0.3f, 0.3f, 0.3f), new Vector3(0f, 0.3f, 0.3f) };
 
     ARRaycastManager m_RaycastManager;
     List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
@@ -53,6 +56,26 @@ public class PlaceGameBoard : MonoBehaviour
             GameObject newbase = Instantiate(baseObject, gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
             newbase.transform.localScale = new Vector3(.03f, .03f, .03f);
             Instantiate(baseObjectMask, gameBoardArea.transform.position, gameBoardArea.transform.rotation);
+            gameObject.GetComponentInChildren<GrabObject>().BlockAlign = baseObject.transform;
+
+            /*for (int i = 0; i < 3; i++)
+            {
+                var go = Instantiate(stagePrefabs[i], gameBoardArea.transform.position + stagePrefabPos[i], gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
+                go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+            }*/
+
+            var go = Instantiate(stagePrefabs[0], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
+            go.transform.position -= (gameBoardArea.transform.forward * 0.2f + gameBoardArea.transform.right * 0.2f);
+            go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+
+            go = Instantiate(stagePrefabs[1], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
+            go.transform.position -= gameBoardArea.transform.forward * 0.3f;
+            go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+
+            go = Instantiate(stagePrefabs[2], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
+            go.transform.position -= (gameBoardArea.transform.forward * 0.2f - gameBoardArea.transform.right * 0.2f);
+            go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+
             uiText.text = "터치 상태로 블럭을 옮길 수 있어요.\n블럭을 게임보드 위로 옮겨\n게임을 시작하세요.";
             Destroy(gameBoardArea);
             Destroy(this);

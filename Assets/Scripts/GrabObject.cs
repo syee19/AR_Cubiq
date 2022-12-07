@@ -12,7 +12,7 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private LayerMask ArcBallMask;     // 카메라 정면에 존재하는 가상의 구
     [Space]
     [SerializeField] private float RayCastRange;        // Raycast maxDistanse 값
-    [SerializeField] private Transform BlockAlign;      // block이 정렬될 방향 => 게임 보드
+    public Transform BlockAlign;      // block이 정렬될 방향 => 게임 보드
 
     private GameObject grabObject;
     private bool isGrab = false;
@@ -63,7 +63,17 @@ public class GrabObject : MonoBehaviour
             // block을 구성하는 cube들에 hit
             if (Physics.Raycast(ray, out RaycastHit hit, RayCastRange, GrabMask))
             {
-                grabObject = hit.collider.gameObject.transform.parent.gameObject;
+
+
+                if (hit.collider.gameObject.transform.parent != null)
+                {
+                    grabObject = hit.collider.gameObject.transform.parent.gameObject;
+
+                }
+                else
+                {
+                    grabObject = hit.collider.gameObject;
+                }
                 relativePos = Quaternion.Inverse(arCamera.transform.rotation) * (grabObject.transform.position - arCamera.transform.position);
 
                 accumulatedRot.rotation = grabObject.transform.rotation;
@@ -92,7 +102,7 @@ public class GrabObject : MonoBehaviour
                 }
 
                 ray = Camera.main.ScreenPointToRay(ScreenCenter + touch.position - prevTouchPos);
-                if (Physics.Raycast(ray, out  hit, RayCastRange, ArcBallMask))
+                if (Physics.Raycast(ray, out hit, RayCastRange, ArcBallMask))
                 {
                     vEnd = hit.point - transform.position;
                 }
@@ -119,7 +129,7 @@ public class GrabObject : MonoBehaviour
             }
         }
 
-        
+
     }
 
     private Vector3 NearestWorldAxis(Vector3 input)
