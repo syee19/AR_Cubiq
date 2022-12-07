@@ -10,34 +10,29 @@ public class BlockSnap : MonoBehaviour
     private GameObject BaseObject;
     private List<Transform> MarkerTransforms;
     private List<Transform> PlaneTransforms;
+    private bool isInBound;
 
-    
-    
+
 
     private void Start()
     {
         BaseObject = GameObject.Find("BaseObject");
         Planes = BaseObject.transform.GetChild(0).gameObject;
         Markers = BaseObject.transform.GetChild(1).gameObject;
-        
+
         BaseBlock = this.transform.GetChild(0).gameObject;
         InitializeTransforms();
     }
 
     void Update()
     {
-        /*if (BaseObject.GetComponent<BaseObjectManager>().isInBound)
+        /*SnapTranslate();
+        RefreshBaseBlock();*/
+        if (isInBound)
         {
             SnapTranslate();
             RefreshBaseBlock();
         }
-        else
-        {
-            //Do something
-        }*/
-        SnapTranslate();
-        RefreshBaseBlock();
-
     }
 
     private void SnapTranslate()
@@ -106,5 +101,21 @@ public class BlockSnap : MonoBehaviour
         }
 
         return closestMarker;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer.Equals(8))
+        {
+            isInBound = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer.Equals(8))
+        {
+            isInBound = false;
+        }
     }
 }
