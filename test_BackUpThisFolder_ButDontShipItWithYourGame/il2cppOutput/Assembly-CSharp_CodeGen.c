@@ -84,7 +84,17 @@ extern void PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302 (void
 extern void PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2 (void);
 // 0x00000024 System.Void PlaceGameBoard::.ctor()
 extern void PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273 (void);
-static Il2CppMethodPointer s_methodPointers[36] = 
+// 0x00000025 UnityEngine.GameObject Stage::get_GameBoardArea()
+extern void Stage_get_GameBoardArea_m96439451079A11D6604AACC83F329348206C5003 (void);
+// 0x00000026 System.Void Stage::set_GameBoardArea(UnityEngine.GameObject)
+extern void Stage_set_GameBoardArea_mF561E621A735CF23F438EFEF28B98046D89ACB0D (void);
+// 0x00000027 System.Void Stage::Start()
+extern void Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B (void);
+// 0x00000028 System.Void Stage::Update()
+extern void Stage_Update_mCACE65AE5CD9F42F1903B618CD2BFEFB9503FA74 (void);
+// 0x00000029 System.Void Stage::.ctor()
+extern void Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2 (void);
+static Il2CppMethodPointer s_methodPointers[41] = 
 {
 	MaskObject_Start_m0064CC419526014BB973880D7EEB02DECC5F20FA,
 	MaskObject__ctor_mF0592F37B96FF1395F0FECCCE9EE04F16EBD9747,
@@ -122,8 +132,13 @@ static Il2CppMethodPointer s_methodPointers[36] =
 	PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302,
 	PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2,
 	PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273,
+	Stage_get_GameBoardArea_m96439451079A11D6604AACC83F329348206C5003,
+	Stage_set_GameBoardArea_mF561E621A735CF23F438EFEF28B98046D89ACB0D,
+	Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B,
+	Stage_Update_mCACE65AE5CD9F42F1903B618CD2BFEFB9503FA74,
+	Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2,
 };
-static const int32_t s_InvokerIndices[36] = 
+static const int32_t s_InvokerIndices[41] = 
 {
 	4419,
 	4419,
@@ -161,12 +176,17 @@ static const int32_t s_InvokerIndices[36] =
 	4419,
 	4419,
 	4419,
+	4323,
+	3576,
+	4419,
+	4419,
+	4419,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	36,
+	41,
 	s_methodPointers,
 	0,
 	NULL,
