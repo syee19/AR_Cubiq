@@ -28,6 +28,11 @@ public class BlockPosition : MonoBehaviour
         }
     }
 
+    public bool GetCollision(int i, int j, int k)
+    {
+        return blockCollision[i, j, k];
+    }
+
     public void SetCollision(int i, int j, int k, bool value)
     {
         blockCollision[i, j, k] = value;

@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class BlockSnap : MonoBehaviour
+public class BlockSnapAlt : MonoBehaviour
 {
     private GameObject Markers;
     private GameObject Planes;
-    private GameObject BaseBlock;
+
     private GameObject BaseObject;
     private List<Transform> MarkerTransforms;
     private List<Transform> PlaneTransforms;
     private bool isInBound;
     private BlockPosition BP;
-
-
+    private List<Transform> Blocks;
+    private List<Transform> ClosestMarkers;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class BlockSnap : MonoBehaviour
         Planes = BaseObject.transform.GetChild(0).gameObject;
         Markers = BaseObject.transform.GetChild(1).gameObject;
         BP = Markers.GetComponent<BlockPosition>();
-        BaseBlock = this.transform.GetChild(0).gameObject;
+
         InitializeTransforms();
     }
 
@@ -32,40 +33,22 @@ public class BlockSnap : MonoBehaviour
         if (isInBound)
         {
             SnapTranslate();
-            RefreshBaseBlock();
         }
     }
 
     private void SnapTranslate()
     {
-        Transform closestMarker = GetClosestMarker();
-        if (closestMarker != null)
-        {
-            this.gameObject.transform.Translate(closestMarker.position - BaseBlock.transform.position, Space.World);
+        ClosestMarkers = GetClosestMarker(ClosestMarkers);
 
-            if (BP.GetCollision(closestMarker.parent.GetSiblingIndex(), closestMarker.GetSiblingIndex() % 4, closestMarker.GetSiblingIndex() / 4))
-            {
-                //Cell is already occupied
-            }
-            else
-            {
-
-            }
-        }
-    }
-    private void RefreshBaseBlock()
-    {
-        Transform _baseBlock = GetBaseBlock();
-        if (_baseBlock != null)
-        {
-            BaseBlock = _baseBlock.gameObject;
-        }
+        this.gameObject.transform.Translate(ClosestMarkers[0].position - Blocks[0].transform.position, Space.World);
     }
 
     private void InitializeTransforms()
     {
         MarkerTransforms = new();
         PlaneTransforms = new();
+        Blocks = new();
+        ClosestMarkers = new();
         foreach (Transform layer in Markers.transform)
         {
             foreach (Transform marker in layer)
@@ -77,40 +60,38 @@ public class BlockSnap : MonoBehaviour
         {
             PlaneTransforms.Add(plane);
         }
-    }
-
-    private Transform GetBaseBlock()
-    {
-        float closestDist = (float)int.MaxValue;
-        Transform closestBlock = null;
         foreach (Transform block in this.transform)
         {
-            float dist = Vector3.Distance(MarkerTransforms[0].position, block.position);
-            if (closestDist > dist)
-            {
-                closestDist = dist;
-                closestBlock = block;
-            }
+            Blocks.Add(block);
         }
-
-        return closestBlock;
     }
 
-    private Transform GetClosestMarker()
+    private List<Transform> GetClosestMarker(List<Transform> ClosestMarkers)
     {
-        float closestDist = (float)int.MaxValue;
-        Transform closestMarker = null;
-        foreach (Transform marker in MarkerTransforms)
-        {
-            float dist = Vector3.Distance(BaseBlock.transform.position, marker.position);
-            if (closestDist > dist)
-            {
-                closestDist = dist;
-                closestMarker = marker;
-            }
-        }
+        List<Transform> closestMarker = new();
 
-        return closestMarker;
+        foreach(Transform block in Blocks)
+        {
+            float closestDist = (float)int.MaxValue;
+            List<Transform> temp = new();
+            foreach (Transform marker in MarkerTransforms)
+            {
+                float dist = Vector3.Distance(block.transform.position, marker.position);
+                if (closestDist > dist)
+                {
+                    closestDist = dist;
+                    temp.Clear();
+                    temp.Add(marker);
+                }
+            }
+            closestMarker.Add(temp[0]);
+        }
+        if (closestMarker.Count == closestMarker.Distinct().Count())
+        {
+            ClosestMarkers = closestMarker;
+            return ClosestMarkers;
+        }
+        else return ClosestMarkers;
     }
 
     private void OnTriggerStay(Collider other)
