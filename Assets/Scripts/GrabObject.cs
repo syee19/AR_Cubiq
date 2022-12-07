@@ -91,7 +91,7 @@ public class GrabObject : MonoBehaviour
         }
         else if (touch.phase != TouchPhase.Canceled) // Moved나 Stationary인 경우
         {
-            if (isGrab) // grab하고있는 object가 있을 때만 회전 수행
+            if (isGrab && !grabObject.name.Contains("Stage")) // grab하고있는 object가 있을 때만 회전 수행
             {
                 // 스크린 어디를 터치하고 있어도 아크볼 회전이 가능하도록, 이전과의 좌표 차이를 적용
                 Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
