@@ -7,14 +7,14 @@ public class BlockSnapAlt : MonoBehaviour
 {
     private GameObject Markers;
     private GameObject Planes;
-
     private GameObject BaseObject;
     private List<Transform> MarkerTransforms;
     private List<Transform> PlaneTransforms;
-    private bool isInBound;
+    private bool isInBound = true;
     private BlockPosition BP;
     private List<Transform> Blocks;
     private List<Transform> ClosestMarkers;
+    private List<Transform> PrevClosestMarkers;
 
     private void Start()
     {
@@ -22,14 +22,12 @@ public class BlockSnapAlt : MonoBehaviour
         Planes = BaseObject.transform.GetChild(0).gameObject;
         Markers = BaseObject.transform.GetChild(1).gameObject;
         BP = Markers.GetComponent<BlockPosition>();
-
-        InitializeTransforms();
+        Initialize();
     }
 
     void Update()
     {
-        /*SnapTranslate();
-        RefreshBaseBlock();*/
+        GetClosestMarker();
         if (isInBound)
         {
             SnapTranslate();
@@ -38,17 +36,16 @@ public class BlockSnapAlt : MonoBehaviour
 
     private void SnapTranslate()
     {
-        ClosestMarkers = GetClosestMarker(ClosestMarkers);
-
         this.gameObject.transform.Translate(ClosestMarkers[0].position - Blocks[0].transform.position, Space.World);
     }
 
-    private void InitializeTransforms()
+    private void Initialize()
     {
         MarkerTransforms = new();
         PlaneTransforms = new();
         Blocks = new();
         ClosestMarkers = new();
+        PrevClosestMarkers = new();
         foreach (Transform layer in Markers.transform)
         {
             foreach (Transform marker in layer)
@@ -66,11 +63,11 @@ public class BlockSnapAlt : MonoBehaviour
         }
     }
 
-    private List<Transform> GetClosestMarker(List<Transform> ClosestMarkers)
+    private void GetClosestMarker()
     {
         List<Transform> closestMarker = new();
 
-        foreach(Transform block in Blocks)
+        foreach (Transform block in Blocks)
         {
             float closestDist = (float)int.MaxValue;
             List<Transform> temp = new();
@@ -86,27 +83,44 @@ public class BlockSnapAlt : MonoBehaviour
             }
             closestMarker.Add(temp[0]);
         }
-        if (closestMarker.Count == closestMarker.Distinct().Count())
+        if (closestMarker.Count == closestMarker.Distinct().Count())        //No overlap
         {
             ClosestMarkers = closestMarker;
-            return ClosestMarkers;
-        }
-        else return ClosestMarkers;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!isInBound && other.gameObject.layer.Equals(8))
-        {
+            if (ClosestMarkers != PrevClosestMarkers)
+            {
+                SetMatrix();
+                PrevClosestMarkers.Clear();
+                PrevClosestMarkers = ClosestMarkers.ToList();
+            }
             isInBound = true;
         }
+        else
+        {
+            ClosestMarkers.Clear();
+            SetMatrix();
+            PrevClosestMarkers.Clear();
+            isInBound = false;
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void SetMatrix()
     {
-        if (other.gameObject.layer.Equals(8))
+        int x, y, z;
+        foreach (Transform item in PrevClosestMarkers)
         {
-            isInBound = false;
+            x = item.parent.GetSiblingIndex();
+            int temp = item.GetSiblingIndex();
+            y = temp % 4;
+            z = temp / 4;
+            BP.SetCollision(x, y, z, false);
+        }
+        foreach (Transform item in ClosestMarkers)
+        {
+            x = item.parent.GetSiblingIndex();
+            int temp = item.GetSiblingIndex();
+            y = temp % 4;
+            z = temp / 4;
+            BP.SetCollision(x, y, z, true);
         }
     }
 }
