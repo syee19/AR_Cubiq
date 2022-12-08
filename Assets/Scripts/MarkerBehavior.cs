@@ -7,8 +7,6 @@ public class MarkerBehavior : MonoBehaviour
     private BlockPosition BP;
     private int x, y, z;
 
-    private readonly bool isTurnedOn_debug = false;
-
     private void Start()
     {
         BP = this.transform.parent.parent.gameObject.GetComponent<BlockPosition>();
