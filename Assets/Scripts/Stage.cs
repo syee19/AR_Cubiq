@@ -40,9 +40,7 @@ public class Stage : MonoBehaviour
             var go = Instantiate(blockPrefab, spawnPoints[list[ran]].position, Quaternion.identity);
             go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
-            Vector3 alignedForward = grabObject.NearestWorldAxis(go.transform.forward);
-            Vector3 alignedUp = grabObject.NearestWorldAxis(go.transform.up);
-            go.transform.rotation = Quaternion.LookRotation(alignedForward, alignedUp);
+            go.transform.rotation = Quaternion.LookRotation(gameObject.transform.forward, gameObject.transform.up);
 
             list.RemoveAt(ran);
         }
