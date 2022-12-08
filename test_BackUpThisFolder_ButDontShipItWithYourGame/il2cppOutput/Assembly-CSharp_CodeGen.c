@@ -78,27 +78,31 @@ extern void MarkerBehavior_OnTriggerStay_mF961A932C235F215F486DE928758819DC6B0B9
 extern void MarkerBehavior_OnTriggerExit_mB61F05A8627740A5C0F81073507BD48748346024 (void);
 // 0x00000021 System.Void MarkerBehavior::.ctor()
 extern void MarkerBehavior__ctor_mCA62A0FECD2B55B09566636D775AD6D59567773F (void);
-// 0x00000022 System.Void PlaceGameBoard::Start()
+// 0x00000022 UnityEngine.Vector3 MiniStage::get_GameBoardPosition()
+extern void MiniStage_get_GameBoardPosition_m7CAB2505B9B2109ECC6F64B2FB1017EC995BADF3 (void);
+// 0x00000023 System.Void MiniStage::set_GameBoardPosition(UnityEngine.Vector3)
+extern void MiniStage_set_GameBoardPosition_m6E850897A94C36BB7FAE8BB2A4E9EDE850F38D97 (void);
+// 0x00000024 UnityEngine.Quaternion MiniStage::get_GameBoardRotation()
+extern void MiniStage_get_GameBoardRotation_m18EDC536264C69FEBD274B070665103331182F25 (void);
+// 0x00000025 System.Void MiniStage::set_GameBoardRotation(UnityEngine.Quaternion)
+extern void MiniStage_set_GameBoardRotation_m8002C79BD1C79BBAEA02D888BBE188768289A081 (void);
+// 0x00000026 System.Void MiniStage::Start()
+extern void MiniStage_Start_mC9B0DAE4F67D4AF8241527D6D5E3925E4B15AB9F (void);
+// 0x00000027 System.Void MiniStage::Update()
+extern void MiniStage_Update_mBE277178981C8CBC0BFD2335EDAD8C7FDA2A1122 (void);
+// 0x00000028 System.Void MiniStage::.ctor()
+extern void MiniStage__ctor_m5244EA53E2E737BCF434E2A24DCE74E06E16EDED (void);
+// 0x00000029 System.Void PlaceGameBoard::Start()
 extern void PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302 (void);
-// 0x00000023 System.Void PlaceGameBoard::Update()
+// 0x0000002A System.Void PlaceGameBoard::Update()
 extern void PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2 (void);
-// 0x00000024 System.Void PlaceGameBoard::.ctor()
+// 0x0000002B System.Void PlaceGameBoard::.ctor()
 extern void PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273 (void);
-// 0x00000025 UnityEngine.Vector3 Stage::get_GameBoardPosition()
-extern void Stage_get_GameBoardPosition_mE9992C111B041922B405D4BDB42507136B198416 (void);
-// 0x00000026 System.Void Stage::set_GameBoardPosition(UnityEngine.Vector3)
-extern void Stage_set_GameBoardPosition_mE9ACAB7EFE934A7DFFA32EC5309F92AF7B9BC06F (void);
-// 0x00000027 UnityEngine.Quaternion Stage::get_GameBoardRotation()
-extern void Stage_get_GameBoardRotation_mC14B2E58AB0F1431561EB570B61B61782A5C9585 (void);
-// 0x00000028 System.Void Stage::set_GameBoardRotation(UnityEngine.Quaternion)
-extern void Stage_set_GameBoardRotation_mFAD28575E1A87EC92A671B08D5BDCA8574F9D177 (void);
-// 0x00000029 System.Void Stage::Start()
+// 0x0000002C System.Void Stage::Start()
 extern void Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B (void);
-// 0x0000002A System.Void Stage::Update()
-extern void Stage_Update_mCACE65AE5CD9F42F1903B618CD2BFEFB9503FA74 (void);
-// 0x0000002B System.Void Stage::.ctor()
+// 0x0000002D System.Void Stage::.ctor()
 extern void Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2 (void);
-static Il2CppMethodPointer s_methodPointers[43] = 
+static Il2CppMethodPointer s_methodPointers[45] = 
 {
 	MaskObject_Start_m0064CC419526014BB973880D7EEB02DECC5F20FA,
 	MaskObject__ctor_mF0592F37B96FF1395F0FECCCE9EE04F16EBD9747,
@@ -133,18 +137,20 @@ static Il2CppMethodPointer s_methodPointers[43] =
 	MarkerBehavior_OnTriggerStay_mF961A932C235F215F486DE928758819DC6B0B994,
 	MarkerBehavior_OnTriggerExit_mB61F05A8627740A5C0F81073507BD48748346024,
 	MarkerBehavior__ctor_mCA62A0FECD2B55B09566636D775AD6D59567773F,
+	MiniStage_get_GameBoardPosition_m7CAB2505B9B2109ECC6F64B2FB1017EC995BADF3,
+	MiniStage_set_GameBoardPosition_m6E850897A94C36BB7FAE8BB2A4E9EDE850F38D97,
+	MiniStage_get_GameBoardRotation_m18EDC536264C69FEBD274B070665103331182F25,
+	MiniStage_set_GameBoardRotation_m8002C79BD1C79BBAEA02D888BBE188768289A081,
+	MiniStage_Start_mC9B0DAE4F67D4AF8241527D6D5E3925E4B15AB9F,
+	MiniStage_Update_mBE277178981C8CBC0BFD2335EDAD8C7FDA2A1122,
+	MiniStage__ctor_m5244EA53E2E737BCF434E2A24DCE74E06E16EDED,
 	PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302,
 	PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2,
 	PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273,
-	Stage_get_GameBoardPosition_mE9992C111B041922B405D4BDB42507136B198416,
-	Stage_set_GameBoardPosition_mE9ACAB7EFE934A7DFFA32EC5309F92AF7B9BC06F,
-	Stage_get_GameBoardRotation_mC14B2E58AB0F1431561EB570B61B61782A5C9585,
-	Stage_set_GameBoardRotation_mFAD28575E1A87EC92A671B08D5BDCA8574F9D177,
 	Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B,
-	Stage_Update_mCACE65AE5CD9F42F1903B618CD2BFEFB9503FA74,
 	Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2,
 };
-static const int32_t s_InvokerIndices[43] = 
+static const int32_t s_InvokerIndices[45] = 
 {
 	4419,
 	4419,
@@ -179,13 +185,15 @@ static const int32_t s_InvokerIndices[43] =
 	3576,
 	3576,
 	4419,
-	4419,
-	4419,
-	4419,
 	4411,
 	3653,
 	4335,
 	3588,
+	4419,
+	4419,
+	4419,
+	4419,
+	4419,
 	4419,
 	4419,
 	4419,
@@ -194,7 +202,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	43,
+	45,
 	s_methodPointers,
 	0,
 	NULL,
