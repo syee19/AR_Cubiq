@@ -84,7 +84,21 @@ extern void PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302 (void
 extern void PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2 (void);
 // 0x00000024 System.Void PlaceGameBoard::.ctor()
 extern void PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273 (void);
-static Il2CppMethodPointer s_methodPointers[36] = 
+// 0x00000025 UnityEngine.Vector3 Stage::get_GameBoardPosition()
+extern void Stage_get_GameBoardPosition_mE9992C111B041922B405D4BDB42507136B198416 (void);
+// 0x00000026 System.Void Stage::set_GameBoardPosition(UnityEngine.Vector3)
+extern void Stage_set_GameBoardPosition_mE9ACAB7EFE934A7DFFA32EC5309F92AF7B9BC06F (void);
+// 0x00000027 UnityEngine.Quaternion Stage::get_GameBoardRotation()
+extern void Stage_get_GameBoardRotation_mC14B2E58AB0F1431561EB570B61B61782A5C9585 (void);
+// 0x00000028 System.Void Stage::set_GameBoardRotation(UnityEngine.Quaternion)
+extern void Stage_set_GameBoardRotation_mFAD28575E1A87EC92A671B08D5BDCA8574F9D177 (void);
+// 0x00000029 System.Void Stage::Start()
+extern void Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B (void);
+// 0x0000002A System.Void Stage::Update()
+extern void Stage_Update_mCACE65AE5CD9F42F1903B618CD2BFEFB9503FA74 (void);
+// 0x0000002B System.Void Stage::.ctor()
+extern void Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2 (void);
+static Il2CppMethodPointer s_methodPointers[43] = 
 {
 	MaskObject_Start_m0064CC419526014BB973880D7EEB02DECC5F20FA,
 	MaskObject__ctor_mF0592F37B96FF1395F0FECCCE9EE04F16EBD9747,
@@ -122,8 +136,15 @@ static Il2CppMethodPointer s_methodPointers[36] =
 	PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302,
 	PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2,
 	PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273,
+	Stage_get_GameBoardPosition_mE9992C111B041922B405D4BDB42507136B198416,
+	Stage_set_GameBoardPosition_mE9ACAB7EFE934A7DFFA32EC5309F92AF7B9BC06F,
+	Stage_get_GameBoardRotation_mC14B2E58AB0F1431561EB570B61B61782A5C9585,
+	Stage_set_GameBoardRotation_mFAD28575E1A87EC92A671B08D5BDCA8574F9D177,
+	Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B,
+	Stage_Update_mCACE65AE5CD9F42F1903B618CD2BFEFB9503FA74,
+	Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2,
 };
-static const int32_t s_InvokerIndices[36] = 
+static const int32_t s_InvokerIndices[43] = 
 {
 	4419,
 	4419,
@@ -161,12 +182,19 @@ static const int32_t s_InvokerIndices[36] =
 	4419,
 	4419,
 	4419,
+	4411,
+	3653,
+	4335,
+	3588,
+	4419,
+	4419,
+	4419,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	36,
+	43,
 	s_methodPointers,
 	0,
 	NULL,
