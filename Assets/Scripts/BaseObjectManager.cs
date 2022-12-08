@@ -12,7 +12,7 @@ public class BaseObjectManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Markers = this.transform.Find("Markers");
+        Markers = this.transform.GetChild(1);
         if (isDrawMarker && !markerFlag)
         {
             foreach (Transform layer in Markers.transform)
