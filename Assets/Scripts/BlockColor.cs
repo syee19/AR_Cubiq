@@ -6,8 +6,7 @@ public class BlockColor : MonoBehaviour
 {
     private void Start()
     {
-        Shader shader = this.transform.GetChild(0).GetComponent<MeshRenderer>().material.shader;
-        Material material = new Material(shader);
+        Material material = new Material(Resources.Load<Material>("DemoMat1"));
         Color color;
         int blockIndex = -1;
         for (int i = 0; i < 8; i++)
