@@ -16,7 +16,12 @@ public class BlockColor : MonoBehaviour
             {
                 blockIndex = i;
             }
+            if (this.gameObject.name.Contains("Alt"))
+            {
+                blockIndex = 8;
+            }
         }
+
 
         color = blockIndex switch
         {
@@ -28,6 +33,7 @@ public class BlockColor : MonoBehaviour
             5 => new Color32(204, 199, 111, 255),
             6 => new Color32(200, 151, 113, 255),
             7 => new Color32(182, 103, 114, 255),
+            8 => new Color32(225, 225, 225, 255),
             _ => new Color32(235, 235, 235, 255),
         };
 
