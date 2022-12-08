@@ -83,16 +83,19 @@ public class BlockSnapAlt : MonoBehaviour
             }
             closestMarker.Add(temp[0]);
         }
-        if (closestMarker.Count == closestMarker.Distinct().Count())        //No overlap
+        if (closestMarker.Count == closestMarker.Distinct().Count())        //No overlap == in Bound
         {
-            ClosestMarkers = closestMarker;
-            if (ClosestMarkers != PrevClosestMarkers)
+            if (IsClosestMarkerFree(closestMarker))
             {
-                SetMatrix();
-                PrevClosestMarkers.Clear();
-                PrevClosestMarkers = ClosestMarkers.ToList();
+                ClosestMarkers = closestMarker;
+                if (ClosestMarkers != PrevClosestMarkers)
+                {
+                    SetMatrix();
+                    PrevClosestMarkers.Clear();
+                    PrevClosestMarkers = ClosestMarkers.ToList();
+                }
+                isInBound = true;
             }
-            isInBound = true;
         }
         else
         {
@@ -122,5 +125,26 @@ public class BlockSnapAlt : MonoBehaviour
             z = temp / 4;
             BP.SetCollision(x, y, z, true);
         }
+    }
+
+    private bool IsClosestMarkerFree(List<Transform> closestMarker)
+    {
+        int x, y, z;
+        foreach (Transform item in closestMarker)
+        {
+            if (!PrevClosestMarkers.Contains(item))
+            {
+                x = item.parent.GetSiblingIndex();
+                int temp = item.GetSiblingIndex();
+                y = temp % 4;
+                z = temp / 4;
+
+                if (BP.GetCollision(x, y, z))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
