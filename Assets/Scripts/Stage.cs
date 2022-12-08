@@ -12,8 +12,12 @@ public class Stage : MonoBehaviour
 
     private List<int> list = new List<int>();
 
+    private GrabObject grabObject;
+
     private void Start()
     {
+        grabObject = GameObject.FindObjectOfType<GrabObject>().GetComponent<GrabObject>();
+
         for (int i = 0; i < 13; i++)
         {
             list.Add(i);
@@ -26,7 +30,12 @@ public class Stage : MonoBehaviour
             var go = Instantiate(blockPrefab, spawnPoints[ran].position, Quaternion.identity);
             go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
+            Vector3 alignedForward = grabObject.NearestWorldAxis(go.transform.forward);
+            Vector3 alignedUp = grabObject.NearestWorldAxis(go.transform.up);
+            go.transform.rotation = Quaternion.LookRotation(alignedForward, alignedUp);
+
             list.RemoveAt(ran);
         }
     }
 }
+

@@ -12,10 +12,10 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private LayerMask ArcBallMask;     // 카메라 정면에 존재하는 가상의 구
     [Space]
     [SerializeField] private float RayCastRange;        // Raycast maxDistanse 값
-    public Transform BlockAlign;      // block이 정렬될 방향 => 게임 보드
+    public Transform BlockAlign { get; set; }      // block이 정렬될 방향 => 게임 보드
 
     private GameObject grabObject;
-    private bool isGrab = false;
+    public bool IsGrab { get; set; } = false;
     private Vector2 ScreenCenter;
     private Vector2 prevTouchPos;                       // 직전 프레임의 Input.GetTouch(0).position
 
@@ -50,7 +50,7 @@ public class GrabObject : MonoBehaviour
 
         Touch touch = Input.GetTouch(0);
 
-        if (isGrab)
+        if (IsGrab)
         {
             grabObject.transform.position = arCamera.transform.rotation * relativePos + arCamera.transform.position;
         }
@@ -81,17 +81,22 @@ public class GrabObject : MonoBehaviour
 
                 prevTouchPos = touch.position;
 
-                isGrab = true;
+                IsGrab = true;
             }
         }
         // touch 종료시 Grab 해제
         else if (touch.phase == TouchPhase.Ended)
         {
-            isGrab = false;
+            IsGrab = false;
         }
         else if (touch.phase != TouchPhase.Canceled) // Moved나 Stationary인 경우
         {
-            if (isGrab && !grabObject.name.Contains("Stage")) // grab하고있는 object가 있을 때만 회전 수행
+            if (!grabObject)
+            {
+                IsGrab = false;
+            }
+
+            if (IsGrab && !grabObject.name.Contains("Stage")) // grab하고있는 object가 있을 때만 회전 수행
             {
                 // 스크린 어디를 터치하고 있어도 아크볼 회전이 가능하도록, 이전과의 좌표 차이를 적용
                 Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
@@ -132,7 +137,7 @@ public class GrabObject : MonoBehaviour
 
     }
 
-    private Vector3 NearestWorldAxis(Vector3 input)
+    public Vector3 NearestWorldAxis(Vector3 input)
     {
         Vector3 v = Quaternion.Inverse(BlockAlign.rotation) * input;
 

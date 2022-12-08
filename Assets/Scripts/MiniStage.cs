@@ -6,6 +6,8 @@ public class MiniStage : MonoBehaviour
 {
     private GameObject baseObject;
 
+    private GrabObject grabObject;
+
     [SerializeField]
     private GameObject stagePrefab;
 
@@ -18,6 +20,7 @@ public class MiniStage : MonoBehaviour
     private void Start()
     {
         baseObject = GameObject.Find("MiniBaseObject");
+        grabObject = GameObject.FindObjectOfType<GrabObject>().GetComponent<GrabObject>();
 
         miniStagePrefabs = GameObject.FindObjectsOfType<MiniStage>();
     }
@@ -33,6 +36,9 @@ public class MiniStage : MonoBehaviour
             var go = Instantiate(stagePrefab, GameBoardPosition, GameBoardRotation * Quaternion.Euler(-45, 0, 45));
             //var go = Instantiate(stagePrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+
+            grabObject.IsGrab = false;
+            grabObject.BlockAlign = go.transform;
 
             foreach (var miniStagePrefab in miniStagePrefabs)
             {
