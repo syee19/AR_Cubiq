@@ -16,11 +16,12 @@ public class Stage : MonoBehaviour
     [SerializeField]
     private Sprite challengeImage;
 
+    private TextMeshProUGUI uiText;
+
     private List<int> list = new List<int>();
 
     private void Start()
     {
-
         for (int i = 0; i < 13; i++)
         {
             list.Add(i);
@@ -40,6 +41,16 @@ public class Stage : MonoBehaviour
 
         var challenge = Instantiate(challengePrefabs, gameObject.transform.position, gameObject.transform.rotation);
         challenge.GetComponent<SpriteRenderer>().sprite = challengeImage;
+    }
+
+    public void ChangeText()
+    {
+        uiText = GameObject.Find("Canvas").transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        if (uiText == null)
+        {
+            Instantiate(blockPrefabs[0]);
+        }
+        else uiText.text = "블럭을 쥔 채로 스와이프하여\n블럭을 회전할 수 있어요.\n그림과 같이 만들어보세요.";
     }
 }
 

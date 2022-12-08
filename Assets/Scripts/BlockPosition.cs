@@ -40,11 +40,6 @@ public class BlockPosition : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return) && CheckAnswer()) Debug.Log("Check!");
-    }
-
     public bool CheckAnswer()
     {
         /*for (int i = 0; i < 4; i++)

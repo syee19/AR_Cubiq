@@ -128,9 +128,11 @@ extern void PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2 (voi
 extern void PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273 (void);
 // 0x0000003A System.Void Stage::Start()
 extern void Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B (void);
-// 0x0000003B System.Void Stage::.ctor()
+// 0x0000003B System.Void Stage::ChangeText()
+extern void Stage_ChangeText_m14BB62248E63F7A81B68E1854E7582DABE61AD81 (void);
+// 0x0000003C System.Void Stage::.ctor()
 extern void Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2 (void);
-static Il2CppMethodPointer s_methodPointers[59] = 
+static Il2CppMethodPointer s_methodPointers[60] = 
 {
 	MaskObject_Start_m0064CC419526014BB973880D7EEB02DECC5F20FA,
 	MaskObject__ctor_mF0592F37B96FF1395F0FECCCE9EE04F16EBD9747,
@@ -190,9 +192,10 @@ static Il2CppMethodPointer s_methodPointers[59] =
 	PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2,
 	PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273,
 	Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B,
+	Stage_ChangeText_m14BB62248E63F7A81B68E1854E7582DABE61AD81,
 	Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2,
 };
-static const int32_t s_InvokerIndices[59] = 
+static const int32_t s_InvokerIndices[60] = 
 {
 	4425,
 	4425,
@@ -253,12 +256,13 @@ static const int32_t s_InvokerIndices[59] =
 	4425,
 	4425,
 	4425,
+	4425,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	59,
+	60,
 	s_methodPointers,
 	0,
 	NULL,
