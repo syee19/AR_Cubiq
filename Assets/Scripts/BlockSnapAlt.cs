@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class BlockSnapAlt : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class BlockSnapAlt : MonoBehaviour
     private List<Transform> Blocks;
     private List<Transform> ClosestMarkers;
     private List<Transform> PrevClosestMarkers;
+    private TextMeshProUGUI uiText;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class BlockSnapAlt : MonoBehaviour
         Planes = BaseObject.transform.GetChild(0).gameObject;
         Markers = BaseObject.transform.GetChild(1).gameObject;
         BP = Markers.GetComponent<BlockPosition>();
+        uiText = GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
         Initialize();
     }
 
@@ -37,6 +40,11 @@ public class BlockSnapAlt : MonoBehaviour
     private void SnapTranslate()
     {
         this.gameObject.transform.Translate(ClosestMarkers[0].position - Blocks[0].transform.position, Space.World);
+
+        if (BP.CheckAnswer())
+        {
+            uiText.text = "축하합니다!";
+        }
     }
 
     private void Initialize()

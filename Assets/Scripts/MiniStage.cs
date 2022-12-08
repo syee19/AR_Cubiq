@@ -36,6 +36,7 @@ public class MiniStage : MonoBehaviour
 
             var go = Instantiate(stagePrefab, GameBoardPosition, GameBoardRotation * rot);
             //var go = Instantiate(stagePrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            go.GetComponent<Stage>().ChangeText();
             go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
             grabObject.IsGrab = false;
