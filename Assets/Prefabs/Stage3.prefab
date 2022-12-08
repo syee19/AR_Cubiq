@@ -276,6 +276,8 @@ MonoBehaviour:
   - {fileID: 3270510929562836566, guid: 2d7202d5705f6c0488eeb60cc48c2fbf, type: 3}
   - {fileID: 2231928112870822701, guid: c1cafa0a27217244cb7967a5eeff29f6, type: 3}
   - {fileID: 8498277750654968642, guid: 567007cf24a6337499b72d91fdfc1e9c, type: 3}
+  challengePrefabs: {fileID: 4256437738442331407, guid: 574d92392fae4254fa82ba190023a009, type: 3}
+  challengeImage: {fileID: 21300000, guid: c50081a3bd09c3344ac7faa13594a7dd, type: 3}
 --- !u!1 &1541977262235258975
 GameObject:
   m_ObjectHideFlags: 0

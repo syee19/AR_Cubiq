@@ -19,6 +19,8 @@ public class PlaceGameBoard : MonoBehaviour
     List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
     private Vector2 ScreenCenter;
 
+    private Quaternion rot = Quaternion.Euler(330, 125.264f, 35.264f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +55,7 @@ public class PlaceGameBoard : MonoBehaviour
         Touch touch = Input.GetTouch(0);
         if (touch.phase == TouchPhase.Began)
         {
-            GameObject newbase = Instantiate(baseObject, gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
+            GameObject newbase = Instantiate(baseObject, gameBoardArea.transform.position, gameBoardArea.transform.rotation * rot);
             newbase.transform.localScale = new Vector3(.03f, .03f, .03f);
             newbase.name = "MiniBaseObject";
             Instantiate(baseObjectMask, gameBoardArea.transform.position, gameBoardArea.transform.rotation);
@@ -65,20 +67,20 @@ public class PlaceGameBoard : MonoBehaviour
                 go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
             }*/
 
-            var go = Instantiate(stagePrefabs[0], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
-            go.transform.position += Quaternion.Euler(-45, 0, 45) * (gameBoardArea.transform.forward * 0.2f + gameBoardArea.transform.right * 0.2f);
+            var go = Instantiate(stagePrefabs[0], gameBoardArea.transform.position, gameBoardArea.transform.rotation * rot);
+            go.transform.position += rot * (gameBoardArea.transform.forward * 0.2f + gameBoardArea.transform.right * 0.2f);
             go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
             go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;
 
-            go = Instantiate(stagePrefabs[1], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
-            go.transform.position += Quaternion.Euler(-45, 0, 45) * gameBoardArea.transform.forward * 0.3f;
+            go = Instantiate(stagePrefabs[1], gameBoardArea.transform.position, gameBoardArea.transform.rotation * rot);
+            go.transform.position += rot * gameBoardArea.transform.forward * 0.3f;
             go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
             go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;
 
-            go = Instantiate(stagePrefabs[2], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
-            go.transform.position += Quaternion.Euler(-45, 0, 45) * (gameBoardArea.transform.forward * 0.2f - gameBoardArea.transform.right * 0.2f);
+            go = Instantiate(stagePrefabs[2], gameBoardArea.transform.position, gameBoardArea.transform.rotation * rot);
+            go.transform.position += rot * (gameBoardArea.transform.forward * 0.2f - gameBoardArea.transform.right * 0.2f);
             go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
             go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;

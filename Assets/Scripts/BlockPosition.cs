@@ -36,5 +36,33 @@ public class BlockPosition : MonoBehaviour
     public void SetCollision(int i, int j, int k, bool value)
     {
         blockCollision[i, j, k] = value;
+        Debug.Log("collision");
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && CheckAnswer()) Debug.Log("Check!");
+    }
+
+    public bool CheckAnswer()
+    {
+        /*for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0;j < 4;j++)
+            {
+                for (int k = 0; k < 4; k++)
+                {
+                    
+                }
+            }
+        }*/
+
+        foreach(var item in blockCollision)
+        {
+            if (!item) return false;
+        }
+
+        return true;
     }
 }
