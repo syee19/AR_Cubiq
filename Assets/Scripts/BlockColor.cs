@@ -28,7 +28,7 @@ public class BlockColor : MonoBehaviour
             1 => new Color32(95, 61, 148, 255),
             2 => new Color32(64, 108, 209, 255),
             3 => new Color32(74, 181, 209, 255),
-            4 => new Color32(106, 192, 255, 255),
+            4 => new Color32(124, 213, 83, 255),
             5 => new Color32(204, 199, 111, 255),
             6 => new Color32(200, 151, 113, 255),
             7 => new Color32(182, 103, 114, 255),
