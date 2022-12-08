@@ -4,40 +4,38 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    private GameObject baseObject;
+    [SerializeField]
+    private Transform[] spawnPoints;
 
     [SerializeField]
-    private GameObject stagePrefab;
+    private GameObject[] blockPrefabs;
 
-    private Stage[] miniStagePrefabs;
+    private List<int> list = new List<int>();
 
-    public Vector3 GameBoardPosition { get; set; }
-
-    public Quaternion GameBoardRotation { get; set; }
+    private GrabObject grabObject;
 
     private void Start()
     {
-        baseObject = GameObject.Find("MiniBaseObject");
+        grabObject = GameObject.FindObjectOfType<GrabObject>().GetComponent<GrabObject>();
 
-        miniStagePrefabs = GameObject.FindObjectsOfType<Stage>();
-    }
-
-    private void Update()
-    {
-        if (baseObject == null) return;
-
-        if (Vector3.Distance(transform.position, baseObject.transform.position) <= 0.05f)
+        for (int i = 0; i < 13; i++)
         {
-            Destroy(baseObject);
+            list.Add(i);
+        }
 
-            var go = Instantiate(stagePrefab, GameBoardPosition, GameBoardRotation * Quaternion.Euler(-45, 0, 45));
-            //var go = Instantiate(stagePrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        foreach (var blockPrefab in blockPrefabs)
+        {
+            int ran = Random.Range(0, list.Count);
+
+            var go = Instantiate(blockPrefab, spawnPoints[ran].position, Quaternion.identity);
             go.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
-            foreach (var miniStagePrefab in miniStagePrefabs)
-            {
-                Destroy(miniStagePrefab.gameObject);
-            }
+            Vector3 alignedForward = grabObject.NearestWorldAxis(go.transform.forward);
+            Vector3 alignedUp = grabObject.NearestWorldAxis(go.transform.up);
+            go.transform.rotation = Quaternion.LookRotation(alignedForward, alignedUp);
+
+            list.RemoveAt(ran);
         }
     }
 }
+

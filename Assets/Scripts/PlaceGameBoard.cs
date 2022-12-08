@@ -68,20 +68,20 @@ public class PlaceGameBoard : MonoBehaviour
             var go = Instantiate(stagePrefabs[0], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
             go.transform.position += Quaternion.Euler(-45, 0, 45) * (gameBoardArea.transform.forward * 0.2f + gameBoardArea.transform.right * 0.2f);
             go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            go.GetComponent<Stage>().GameBoardPosition = gameBoardArea.transform.position;
-            go.GetComponent<Stage>().GameBoardRotation = gameBoardArea.transform.rotation;
+            go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
+            go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;
 
             go = Instantiate(stagePrefabs[1], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
             go.transform.position += Quaternion.Euler(-45, 0, 45) * gameBoardArea.transform.forward * 0.3f;
             go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            go.GetComponent<Stage>().GameBoardPosition = gameBoardArea.transform.position;
-            go.GetComponent<Stage>().GameBoardRotation = gameBoardArea.transform.rotation;
+            go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
+            go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;
 
             go = Instantiate(stagePrefabs[2], gameBoardArea.transform.position, gameBoardArea.transform.rotation * Quaternion.Euler(-45, 0, 45));
             go.transform.position += Quaternion.Euler(-45, 0, 45) * (gameBoardArea.transform.forward * 0.2f - gameBoardArea.transform.right * 0.2f);
             go.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            go.GetComponent<Stage>().GameBoardPosition = gameBoardArea.transform.position;
-            go.GetComponent<Stage>().GameBoardRotation = gameBoardArea.transform.rotation;
+            go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
+            go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;
 
             uiText.text = "터치 상태로 블럭을 옮길 수 있어요.\n블럭을 게임보드 위로 옮겨\n게임을 시작하세요.";
             Destroy(gameBoardArea);
