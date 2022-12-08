@@ -17,19 +17,14 @@ public class BlockSnapAlt : MonoBehaviour
     private List<Transform> ClosestMarkers;
     private List<Transform> PrevClosestMarkers;
     private TextMeshProUGUI uiText;
-
-    private void Start()
-    {
-        BaseObject = GameObject.Find("BaseObject");
-        Planes = BaseObject.transform.GetChild(0).gameObject;
-        Markers = BaseObject.transform.GetChild(1).gameObject;
-        BP = Markers.GetComponent<BlockPosition>();
-        uiText = GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
-        Initialize();
-    }
+    private bool isInitialized = false;
 
     void Update()
     {
+        if (!isInitialized)
+        {
+            Initialize();
+        }
         GetClosestMarker();
         if (isInBound)
         {
@@ -49,6 +44,11 @@ public class BlockSnapAlt : MonoBehaviour
 
     private void Initialize()
     {
+        BaseObject = GameObject.Find("BaseObject");
+        Planes = BaseObject.transform.GetChild(0).gameObject;
+        Markers = BaseObject.transform.GetChild(1).gameObject;
+        BP = Markers.GetComponent<BlockPosition>();
+        uiText = GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
         MarkerTransforms = new();
         PlaneTransforms = new();
         Blocks = new();
@@ -69,6 +69,7 @@ public class BlockSnapAlt : MonoBehaviour
         {
             Blocks.Add(block);
         }
+        isInitialized = true;
     }
 
     private void GetClosestMarker()

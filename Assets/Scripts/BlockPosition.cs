@@ -42,18 +42,7 @@ public class BlockPosition : MonoBehaviour
 
     public bool CheckAnswer()
     {
-        /*for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0;j < 4;j++)
-            {
-                for (int k = 0; k < 4; k++)
-                {
-                    
-                }
-            }
-        }*/
-
-        foreach(var item in blockCollision)
+        foreach (var item in blockCollision)
         {
             if (!item) return false;
         }
