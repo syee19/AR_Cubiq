@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BlockColor : MonoBehaviour
 {
+    public Material material;
     private void Start()
     {
-        Material material = new Material(Resources.Load<Material>("DemoMat1"));
+        //Material material = new Material(Resources.Load<Material>("DemoMat1"));
+        material = new Material(Resources.Load<Material>("DemoMat1"));
         Color color;
         int blockIndex = -1;
         for (int i = 0; i < 8; i++)
@@ -37,6 +39,11 @@ public class BlockColor : MonoBehaviour
         };
 
         material.SetColor("_Color", color);
+        ChangeColor();
+    }
+
+    public void ChangeColor()
+    {
         foreach (Transform block in this.transform)
         {
             block.GetComponent<MeshRenderer>().material = material;

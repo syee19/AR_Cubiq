@@ -6,8 +6,6 @@ public class BlockPosition : MonoBehaviour
 {
     public bool[,,] blockCollision = new bool[4, 4, 4];
 
-    [SerializeField]
-    private Vector3[] initPos = new Vector3[12];
 
     private void Start()
     {
@@ -22,10 +20,6 @@ public class BlockPosition : MonoBehaviour
             }
         }
 
-        foreach (var pos in initPos)
-        {
-            blockCollision[(int)pos.x, (int)pos.y, (int)pos.z] = true;
-        }
     }
 
     public bool GetCollision(int i, int j, int k)

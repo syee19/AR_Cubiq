@@ -18,6 +18,7 @@ public class BlockSnapAlt : MonoBehaviour
     private List<Transform> PrevClosestMarkers;
     private TextMeshProUGUI uiText;
     private bool isInitialized = false;
+    private BlockColor BC;
 
     void Update()
     {
@@ -30,20 +31,23 @@ public class BlockSnapAlt : MonoBehaviour
         {
             SnapTranslate();
         }
+        if (BP.CheckAnswer())
+        {
+            BC.material.SetColor("_Color", Color.white);
+            BC.ChangeColor();
+            uiText.text = "축하합니다!";
+        }
+        
     }
 
     private void SnapTranslate()
     {
         this.gameObject.transform.Translate(ClosestMarkers[0].position - Blocks[0].transform.position, Space.World);
-
-        if (BP.CheckAnswer())
-        {
-            uiText.text = "축하합니다!";
-        }
     }
 
     private void Initialize()
     {
+        BC = this.gameObject.GetComponent<BlockColor>();
         BaseObject = GameObject.Find("BaseObject");
         Planes = BaseObject.transform.GetChild(0).gameObject;
         Markers = BaseObject.transform.GetChild(1).gameObject;
