@@ -53406,14 +53406,10 @@ struct Stage_tD58205F690D18C2F904AB6ADDA3B45189C4C3E04  : public MonoBehaviour_t
 	TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* ___spawnPoints_4;
 	// UnityEngine.GameObject[] Stage::blockPrefabs
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___blockPrefabs_5;
-	// UnityEngine.GameObject Stage::challengePrefabs
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___challengePrefabs_6;
-	// UnityEngine.Sprite Stage::challengeImage
-	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___challengeImage_7;
 	// TMPro.TextMeshProUGUI Stage::uiText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___uiText_8;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___uiText_6;
 	// System.Collections.Generic.List`1<System.Int32> Stage::list
-	List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* ___list_9;
+	List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* ___list_7;
 };
 
 // TMPro.TMP_ScrollbarEventHandler

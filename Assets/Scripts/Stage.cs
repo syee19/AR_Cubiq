@@ -11,11 +11,6 @@ public class Stage : MonoBehaviour
     [SerializeField]
     private GameObject[] blockPrefabs;
 
-    [SerializeField]
-    private GameObject challengePrefabs;
-    [SerializeField]
-    private Sprite challengeImage;
-
     private TextMeshProUGUI uiText;
 
     private List<int> list = new List<int>();
@@ -38,9 +33,6 @@ public class Stage : MonoBehaviour
 
             list.RemoveAt(ran);
         }
-
-        var challenge = Instantiate(challengePrefabs, gameObject.transform.position, gameObject.transform.rotation);
-        challenge.GetComponent<SpriteRenderer>().sprite = challengeImage;
     }
 
     public void ChangeText()
