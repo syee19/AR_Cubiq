@@ -53408,12 +53408,8 @@ struct Stage_tD58205F690D18C2F904AB6ADDA3B45189C4C3E04  : public MonoBehaviour_t
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___challengePrefabs_6;
 	// UnityEngine.Sprite Stage::challengeImage
 	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___challengeImage_7;
-	// TMPro.TextMeshProUGUI Stage::uiText
-	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___uiText_8;
 	// System.Collections.Generic.List`1<System.Int32> Stage::list
-	List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* ___list_9;
-	// GrabObject Stage::grabObject
-	GrabObject_t130848A98FEF2A2803328956DEE21A3DD4AF4E9A* ___grabObject_10;
+	List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* ___list_8;
 };
 
 // TMPro.TMP_ScrollbarEventHandler

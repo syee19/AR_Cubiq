@@ -85,9 +85,9 @@ public class PlaceGameBoard : MonoBehaviour
             go.GetComponent<MiniStage>().GameBoardPosition = gameBoardArea.transform.position;
             go.GetComponent<MiniStage>().GameBoardRotation = gameBoardArea.transform.rotation;
 
-            uiText.text = "터치 상태로 블럭을 옮길 수 있어요.\n블럭을 게임보드 위로 옮겨\n게임을 시작하세요.";
+            uiText.text = "블럭을 조준하고 터치해 움직이세요\n스테이지를 보드 위로 옮기면\n게임이 시작됩니다.";
             Destroy(gameBoardArea);
-            Destroy(this);
+            this.enabled = false;
         }
 
     }

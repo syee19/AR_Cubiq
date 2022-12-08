@@ -16,17 +16,10 @@ public class Stage : MonoBehaviour
     [SerializeField]
     private Sprite challengeImage;
 
-    private TextMeshProUGUI uiText;
-
     private List<int> list = new List<int>();
-
-    private GrabObject grabObject;
 
     private void Start()
     {
-        uiText = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
-
-        grabObject = GameObject.FindObjectOfType<GrabObject>().GetComponent<GrabObject>();
 
         for (int i = 0; i < 13; i++)
         {
@@ -47,8 +40,6 @@ public class Stage : MonoBehaviour
 
         var challenge = Instantiate(challengePrefabs, gameObject.transform.position, gameObject.transform.rotation);
         challenge.GetComponent<SpriteRenderer>().sprite = challengeImage;
-
-        uiText.text = "블럭을 회전하고 이동하여\n그림과 같이 만드세요.";
     }
 }
 
