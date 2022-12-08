@@ -62,14 +62,14 @@ extern void BlockSnapAlt_Start_m90CD8D72EA95AA89838AF508A0AE6FFC799A160B (void);
 extern void BlockSnapAlt_Update_m1E14A4550BF7133ED97A0CDACB9F79BF8B97914B (void);
 // 0x00000019 System.Void BlockSnapAlt::SnapTranslate()
 extern void BlockSnapAlt_SnapTranslate_m01104420797A947C80ECD7292C64CEF8276DA7CD (void);
-// 0x0000001A System.Void BlockSnapAlt::InitializeTransforms()
-extern void BlockSnapAlt_InitializeTransforms_m68D4E983992FE10847562C19E02D6C0DF761C6A1 (void);
-// 0x0000001B System.Collections.Generic.List`1<UnityEngine.Transform> BlockSnapAlt::GetClosestMarker(System.Collections.Generic.List`1<UnityEngine.Transform>)
-extern void BlockSnapAlt_GetClosestMarker_m57F1CFA8BE0ADC34477D0754C3BBCBB9DE048A5C (void);
-// 0x0000001C System.Void BlockSnapAlt::OnTriggerStay(UnityEngine.Collider)
-extern void BlockSnapAlt_OnTriggerStay_m8074E047AD3559F3631C0D226B6D2F73383A90A7 (void);
-// 0x0000001D System.Void BlockSnapAlt::OnTriggerExit(UnityEngine.Collider)
-extern void BlockSnapAlt_OnTriggerExit_m8E477F751C720724041C9C3CFDDB296AC349D4E9 (void);
+// 0x0000001A System.Void BlockSnapAlt::Initialize()
+extern void BlockSnapAlt_Initialize_m0F0340232CB214105A8BCF14F5312B10AF0F74DD (void);
+// 0x0000001B System.Void BlockSnapAlt::GetClosestMarker()
+extern void BlockSnapAlt_GetClosestMarker_mD64636E87C11FE7615A89EE7ED1E7DAFE2DF88A8 (void);
+// 0x0000001C System.Void BlockSnapAlt::SetMatrix()
+extern void BlockSnapAlt_SetMatrix_mE6CD4997F3C7B3D987999F0502816358AC6EE3C6 (void);
+// 0x0000001D System.Boolean BlockSnapAlt::IsClosestMarkerFree(System.Collections.Generic.List`1<UnityEngine.Transform>)
+extern void BlockSnapAlt_IsClosestMarkerFree_m8582A482AA5DA1D8B5B1266EE29A6C064BBB8169 (void);
 // 0x0000001E System.Void BlockSnapAlt::.ctor()
 extern void BlockSnapAlt__ctor_m9CB0BC4ACA26772A9805EE1EF3C176939E9B7A96 (void);
 // 0x0000001F System.Void GameManager::Awake()
@@ -102,37 +102,35 @@ extern void GrabObjectMouse_NearestWorldAxis_mA288FA63E2AC3BB20698C6AE566BC3682C
 extern void GrabObjectMouse__ctor_mE33C65A98A267B9A3B85FE235CFFF0C2CA5ABBF9 (void);
 // 0x0000002D System.Void MarkerBehavior::Start()
 extern void MarkerBehavior_Start_m8AD579270452B983405C2CFA0B18AA8EBF19DC45 (void);
-// 0x0000002E System.Void MarkerBehavior::OnTriggerStay(UnityEngine.Collider)
-extern void MarkerBehavior_OnTriggerStay_mF961A932C235F215F486DE928758819DC6B0B994 (void);
-// 0x0000002F System.Void MarkerBehavior::OnTriggerExit(UnityEngine.Collider)
-extern void MarkerBehavior_OnTriggerExit_mB61F05A8627740A5C0F81073507BD48748346024 (void);
-// 0x00000030 System.Void MarkerBehavior::.ctor()
+// 0x0000002E System.Void MarkerBehavior::Update()
+extern void MarkerBehavior_Update_m8E5B3BFC15ABC53E6693B7D1847CBDC8E063C855 (void);
+// 0x0000002F System.Void MarkerBehavior::.ctor()
 extern void MarkerBehavior__ctor_mCA62A0FECD2B55B09566636D775AD6D59567773F (void);
-// 0x00000031 UnityEngine.Vector3 MiniStage::get_GameBoardPosition()
+// 0x00000030 UnityEngine.Vector3 MiniStage::get_GameBoardPosition()
 extern void MiniStage_get_GameBoardPosition_m7CAB2505B9B2109ECC6F64B2FB1017EC995BADF3 (void);
-// 0x00000032 System.Void MiniStage::set_GameBoardPosition(UnityEngine.Vector3)
+// 0x00000031 System.Void MiniStage::set_GameBoardPosition(UnityEngine.Vector3)
 extern void MiniStage_set_GameBoardPosition_m6E850897A94C36BB7FAE8BB2A4E9EDE850F38D97 (void);
-// 0x00000033 UnityEngine.Quaternion MiniStage::get_GameBoardRotation()
+// 0x00000032 UnityEngine.Quaternion MiniStage::get_GameBoardRotation()
 extern void MiniStage_get_GameBoardRotation_m18EDC536264C69FEBD274B070665103331182F25 (void);
-// 0x00000034 System.Void MiniStage::set_GameBoardRotation(UnityEngine.Quaternion)
+// 0x00000033 System.Void MiniStage::set_GameBoardRotation(UnityEngine.Quaternion)
 extern void MiniStage_set_GameBoardRotation_m8002C79BD1C79BBAEA02D888BBE188768289A081 (void);
-// 0x00000035 System.Void MiniStage::Start()
+// 0x00000034 System.Void MiniStage::Start()
 extern void MiniStage_Start_mC9B0DAE4F67D4AF8241527D6D5E3925E4B15AB9F (void);
-// 0x00000036 System.Void MiniStage::Update()
+// 0x00000035 System.Void MiniStage::Update()
 extern void MiniStage_Update_mBE277178981C8CBC0BFD2335EDAD8C7FDA2A1122 (void);
-// 0x00000037 System.Void MiniStage::.ctor()
+// 0x00000036 System.Void MiniStage::.ctor()
 extern void MiniStage__ctor_m5244EA53E2E737BCF434E2A24DCE74E06E16EDED (void);
-// 0x00000038 System.Void PlaceGameBoard::Start()
+// 0x00000037 System.Void PlaceGameBoard::Start()
 extern void PlaceGameBoard_Start_mA0020978CD3F1ED08CAB16958178C823AC9CD302 (void);
-// 0x00000039 System.Void PlaceGameBoard::Update()
+// 0x00000038 System.Void PlaceGameBoard::Update()
 extern void PlaceGameBoard_Update_mC61CACFD0DF9627D3F9C14DCB14BD4DFB0BFD1F2 (void);
-// 0x0000003A System.Void PlaceGameBoard::.ctor()
+// 0x00000039 System.Void PlaceGameBoard::.ctor()
 extern void PlaceGameBoard__ctor_m4ACC212BD24B8959E0119A1F89AA185CF439A273 (void);
-// 0x0000003B System.Void Stage::Start()
+// 0x0000003A System.Void Stage::Start()
 extern void Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B (void);
-// 0x0000003C System.Void Stage::.ctor()
+// 0x0000003B System.Void Stage::.ctor()
 extern void Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2 (void);
-static Il2CppMethodPointer s_methodPointers[60] = 
+static Il2CppMethodPointer s_methodPointers[59] = 
 {
 	MaskObject_Start_m0064CC419526014BB973880D7EEB02DECC5F20FA,
 	MaskObject__ctor_mF0592F37B96FF1395F0FECCCE9EE04F16EBD9747,
@@ -159,10 +157,10 @@ static Il2CppMethodPointer s_methodPointers[60] =
 	BlockSnapAlt_Start_m90CD8D72EA95AA89838AF508A0AE6FFC799A160B,
 	BlockSnapAlt_Update_m1E14A4550BF7133ED97A0CDACB9F79BF8B97914B,
 	BlockSnapAlt_SnapTranslate_m01104420797A947C80ECD7292C64CEF8276DA7CD,
-	BlockSnapAlt_InitializeTransforms_m68D4E983992FE10847562C19E02D6C0DF761C6A1,
-	BlockSnapAlt_GetClosestMarker_m57F1CFA8BE0ADC34477D0754C3BBCBB9DE048A5C,
-	BlockSnapAlt_OnTriggerStay_m8074E047AD3559F3631C0D226B6D2F73383A90A7,
-	BlockSnapAlt_OnTriggerExit_m8E477F751C720724041C9C3CFDDB296AC349D4E9,
+	BlockSnapAlt_Initialize_m0F0340232CB214105A8BCF14F5312B10AF0F74DD,
+	BlockSnapAlt_GetClosestMarker_mD64636E87C11FE7615A89EE7ED1E7DAFE2DF88A8,
+	BlockSnapAlt_SetMatrix_mE6CD4997F3C7B3D987999F0502816358AC6EE3C6,
+	BlockSnapAlt_IsClosestMarkerFree_m8582A482AA5DA1D8B5B1266EE29A6C064BBB8169,
 	BlockSnapAlt__ctor_m9CB0BC4ACA26772A9805EE1EF3C176939E9B7A96,
 	GameManager_Awake_m4B6E8E2AF58C95C9A2A0C4637A34AE0892CB637F,
 	GameManager__ctor_mF453CED520617BFB65C52405A964E06CF17DB368,
@@ -179,8 +177,7 @@ static Il2CppMethodPointer s_methodPointers[60] =
 	GrabObjectMouse_NearestWorldAxis_mA288FA63E2AC3BB20698C6AE566BC3682C9C6FB9,
 	GrabObjectMouse__ctor_mE33C65A98A267B9A3B85FE235CFFF0C2CA5ABBF9,
 	MarkerBehavior_Start_m8AD579270452B983405C2CFA0B18AA8EBF19DC45,
-	MarkerBehavior_OnTriggerStay_mF961A932C235F215F486DE928758819DC6B0B994,
-	MarkerBehavior_OnTriggerExit_mB61F05A8627740A5C0F81073507BD48748346024,
+	MarkerBehavior_Update_m8E5B3BFC15ABC53E6693B7D1847CBDC8E063C855,
 	MarkerBehavior__ctor_mCA62A0FECD2B55B09566636D775AD6D59567773F,
 	MiniStage_get_GameBoardPosition_m7CAB2505B9B2109ECC6F64B2FB1017EC995BADF3,
 	MiniStage_set_GameBoardPosition_m6E850897A94C36BB7FAE8BB2A4E9EDE850F38D97,
@@ -195,7 +192,7 @@ static Il2CppMethodPointer s_methodPointers[60] =
 	Stage_Start_m27980F66F6CEB16E4DA5040BCDB509592D6D0A2B,
 	Stage__ctor_m33DA4FF521C0FF66D6D4C7E171937743DF133EE2,
 };
-static const int32_t s_InvokerIndices[60] = 
+static const int32_t s_InvokerIndices[59] = 
 {
 	4425,
 	4425,
@@ -223,9 +220,9 @@ static const int32_t s_InvokerIndices[60] =
 	4425,
 	4425,
 	4425,
-	3121,
-	3581,
-	3581,
+	4425,
+	4425,
+	2506,
 	4425,
 	4425,
 	4425,
@@ -242,8 +239,7 @@ static const int32_t s_InvokerIndices[60] =
 	3257,
 	4425,
 	4425,
-	3581,
-	3581,
+	4425,
 	4425,
 	4417,
 	3658,
@@ -262,7 +258,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	60,
+	59,
 	s_methodPointers,
 	0,
 	NULL,
