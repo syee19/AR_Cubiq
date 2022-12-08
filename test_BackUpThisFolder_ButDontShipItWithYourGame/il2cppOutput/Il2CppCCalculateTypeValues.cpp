@@ -53354,8 +53354,10 @@ struct Stage_tD58205F690D18C2F904AB6ADDA3B45189C4C3E04  : public MonoBehaviour_t
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___stagePrefab_5;
 	// Stage[] Stage::miniStagePrefabs
 	StageU5BU5D_t6C330B10649B0DEBEE6F129B55690AFDB9CC82C5* ___miniStagePrefabs_6;
-	// UnityEngine.GameObject Stage::<GameBoardArea>k__BackingField
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___U3CGameBoardAreaU3Ek__BackingField_7;
+	// UnityEngine.Vector3 Stage::<GameBoardPosition>k__BackingField
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___U3CGameBoardPositionU3Ek__BackingField_7;
+	// UnityEngine.Quaternion Stage::<GameBoardRotation>k__BackingField
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___U3CGameBoardRotationU3Ek__BackingField_8;
 };
 
 // TMPro.TMP_ScrollbarEventHandler
