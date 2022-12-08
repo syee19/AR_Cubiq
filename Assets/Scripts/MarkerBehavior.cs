@@ -6,6 +6,9 @@ public class MarkerBehavior : MonoBehaviour
 {
     private BlockPosition BP;
     private int x, y, z;
+
+    private readonly bool isTurnedOn_debug = false;
+
     private void Start()
     {
         BP = this.transform.parent.parent.gameObject.GetComponent<BlockPosition>();
@@ -14,18 +17,16 @@ public class MarkerBehavior : MonoBehaviour
         y = temp % 4;
         z = temp / 4;
     }
-    private void OnTriggerStay(Collider other)
+
+    private void Update()
     {
-        if (!BP.blockCollision[x, y, z])
+        if (BP.GetCollision(x, y, z))
         {
-            BP.SetCollision(x, y, z, true);
             this.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        BP.SetCollision(x, y, z, false);
-        this.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+        else
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+        }
     }
 }

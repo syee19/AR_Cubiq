@@ -36,6 +36,5 @@ public class BlockPosition : MonoBehaviour
     public void SetCollision(int i, int j, int k, bool value)
     {
         blockCollision[i, j, k] = value;
-        Debug.Log("collision");
     }
 }
